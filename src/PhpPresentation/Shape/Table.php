@@ -17,7 +17,6 @@
 
 namespace PhpOffice\PhpPresentation\Shape;
 
-use PhpOffice\PhpPresentation\AbstractShape;
 use PhpOffice\PhpPresentation\ComparableInterface;
 use PhpOffice\PhpPresentation\Shape\Table\Row;
 
@@ -99,6 +98,24 @@ class Table extends AbstractGraphic implements ComparableInterface
         $this->rows[] = $row;
 
         return $row;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumColumns()
+    {
+        return $this->columnCount;
+    }
+
+    /**
+     * @param int $numColumn
+     * @return Table
+     */
+    public function setNumColumns($numColumn)
+    {
+        $this->columnCount = $numColumn;
+        return $this;
     }
 
     /**

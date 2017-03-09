@@ -41,8 +41,35 @@ class FontTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($object->isSubScript());
         $this->assertFalse($object->isStrikethrough());
         $this->assertEquals(Font::UNDERLINE_NONE, $object->getUnderline());
+        $this->assertEquals(0, $object->getCharacterSpacing());
         $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Color', $object->getColor());
         $this->assertEquals(Color::COLOR_BLACK, $object->getColor()->getARGB());
+    }
+
+    /**
+     * Test get/set color
+     * @expectedException \Exception
+     * @expectedExceptionMessage $pValue must be an instance of \PhpOffice\PhpPresentation\Style\Color
+     */
+    public function testSetGetColorException()
+    {
+        $object = new Font();
+        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Font', $object->setColor());
+    }
+
+    /**
+     * Test get/set Character Spacing
+     */
+    public function testSetGetCharacterSpacing()
+    {
+        $object = new Font();
+        $this->assertEquals(0, $object->getCharacterSpacing());
+        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Font', $object->setCharacterSpacing(0));
+        $this->assertEquals(0, $object->getCharacterSpacing());
+        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Font', $object->setCharacterSpacing(10));
+        $this->assertEquals(1000, $object->getCharacterSpacing());
+        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Font', $object->setCharacterSpacing());
+        $this->assertEquals(0, $object->getCharacterSpacing());
     }
 
     /**
@@ -51,8 +78,7 @@ class FontTest extends \PHPUnit_Framework_TestCase
     public function testSetGetColor()
     {
         $object = new Font();
-        $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Font', $object->setColor());
-        $this->assertNull($object->getColor());
+        $this->assertEquals(Color::COLOR_BLACK, $object->getColor()->getARGB());
         $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Font', $object->setColor(new Color(Color::COLOR_BLUE)));
         $this->assertInstanceOf('PhpOffice\\PhpPresentation\\Style\\Color', $object->getColor());
         $this->assertEquals(Color::COLOR_BLUE, $object->getColor()->getARGB());

@@ -108,6 +108,13 @@ class Font implements ComparableInterface
     private $color;
 
     /**
+     * Character Spacing
+     *
+     * @var int
+     */
+    private $characterSpacing;
+
+    /**
      * Hash index
      *
      * @var string
@@ -120,15 +127,16 @@ class Font implements ComparableInterface
     public function __construct()
     {
         // Initialise values
-        $this->name          = 'Calibri';
-        $this->size          = 10;
-        $this->bold          = false;
-        $this->italic        = false;
-        $this->superScript   = false;
-        $this->subScript     = false;
-        $this->underline     = self::UNDERLINE_NONE;
-        $this->strikethrough = false;
-        $this->color         = new Color(Color::COLOR_BLACK);
+        $this->name             = 'Calibri';
+        $this->size             = 10;
+        $this->characterSpacing = 0;
+        $this->bold             = false;
+        $this->italic           = false;
+        $this->superScript      = false;
+        $this->subScript        = false;
+        $this->underline        = self::UNDERLINE_NONE;
+        $this->strikethrough    = false;
+        $this->color            = new Color(Color::COLOR_BLACK);
     }
 
     /**
@@ -154,6 +162,32 @@ class Font implements ComparableInterface
         }
         $this->name = $pValue;
 
+        return $this;
+    }
+    
+    /**
+     * Get Character Spacing
+     *
+     * @return double
+     */
+    public function getCharacterSpacing()
+    {
+        return $this->characterSpacing;
+    }
+    
+    /**
+     * Set Character Spacing
+     * Value in pt
+     * @param float|int $pValue
+     * @return \PhpOffice\PhpPresentation\Style\Font
+     */
+    public function setCharacterSpacing($pValue = 0)
+    {
+        if ($pValue == '') {
+            $pValue = 0;
+        }
+        $this->characterSpacing = $pValue * 100;
+    
         return $this;
     }
 
@@ -344,7 +378,7 @@ class Font implements ComparableInterface
     /**
      * Get Color
      *
-     * @return \PhpOffice\PhpPresentation\Style\Color
+     * @return \PhpOffice\PhpPresentation\Style\Color|\PhpOffice\PhpPresentation\Style\SchemeColor
      */
     public function getColor()
     {
@@ -354,12 +388,15 @@ class Font implements ComparableInterface
     /**
      * Set Color
      *
-     * @param  \PhpOffice\PhpPresentation\Style\Color $pValue
+     * @param  \PhpOffice\PhpPresentation\Style\Color|\PhpOffice\PhpPresentation\Style\SchemeColor $pValue
      * @throws \Exception
      * @return \PhpOffice\PhpPresentation\Style\Font
      */
-    public function setColor(Color $pValue = null)
+    public function setColor($pValue = null)
     {
+        if (!$pValue instanceof Color) {
+            throw new \Exception('$pValue must be an instance of \PhpOffice\PhpPresentation\Style\Color');
+        }
         $this->color = $pValue;
 
         return $this;

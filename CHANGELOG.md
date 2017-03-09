@@ -1,6 +1,34 @@
 # Changelog
 
-## 0.7.0 - WIP
+## 0.8.0 - WIP
+
+### Bugfix
+- PowerPoint2007 Writer : Fixed the marker on line chart when symbol is none - @Napryc GH-211
+- PowerPoint2007 Writer : Fixed the format value in Pie Chart - @Napryc GH-212
+- PowerPoint2007 Writer : The presentation need repairs on Mac @jrking4 GH-266 GH-276
+- PowerPoint2007 Writer : Fix for PowerPoint2007 Writer (Need repair) @Progi1984 GH-266 GH-274 GH-276 GH-282 GH-302
+- PowerPoint2007 Writer : Fixed the axis title in bar chart - @pgee70 GH-267
+- PowerPoint2007 Writer : Fixed the label position in bar chart - @pgee70 GH-268
+- PowerPoint2007 Writer : Support of margins in cell in table - @carlosafonso @Progi1984 GH-273 GH-315
+- Fixed the corruption of file when an addExternalSlide is called - @Progi1984 GH-240
+
+### Features
+- ODPresentation Writer : Show/Hide Value / Name / Series Name in Chart - @Progi1984 GH-272
+- ODPresentation Writer : Axis Bounds in Chart - @Progi1984 GH-269
+- PowerPoint97 Reader : Support of Slide Note - @Progi1984 GH-226
+- PowerPoint2007 Reader : Support of Shape Table - @Progi1984 GH-240
+- PowerPoint2007 Reader : Support of Slide Note - @Progi1984 GH-226
+- PowerPoint2007 Reader : Support text direction in Alignment for Table - @Progi1984 GH-218
+- PowerPoint2007 Writer : Implement character spacing - @jvanoostrom GH-301
+- PowerPoint2007 Writer : Axis Bounds in Chart - @Progi1984 GH-269
+- PowerPoint2007 Writer : Implement Legend Key in Series for Chart - @Progi1984 GH-319
+- PowerPoint2007 Writer : Support text direction in Alignment for Table - @SeregPie GH-218
+- PowerPoint2007 Writer : Support tick mark & unit in Axis for Chart - @Faab GH-218
+- PowerPoint2007 Writer : Support separator in Series for Chart - @jphchaput GH-218
+- PowerPoint2007 Writer : Support autoscale for Chart - @Progi1984 GH-293
+- Misc : Added two methods for setting Border & Fill in Legend - @Progi1984 GH-265
+
+## 0.7.0 - 2016-09-12
 
 ### Bugfix
 - Fixed the image project - @mvargasmoran GH-177
@@ -13,6 +41,7 @@
 - PhpOffice\PhpPresentation\Shape\Type\AbstracType\setData has been deprecated for PhpOffice\PhpPresentation\Shape\Type\AbstracType\setSeries - @Progi1984 GH-169
 - Added documentation for chart series (font, outline, marker) - @Progi1984 GH-169
 - Internal Structure for Drawing Shape - @Progi1984 GH-192
+- Documentation about manual installation - @danielbair GH-254
 
 ### Features
 - ODPresentation & PowerPoint2007 Writer : Add support for Comment - @Progi1984 GH-116
@@ -26,9 +55,16 @@
 - ODPresentation & PowerPoint2007 Writer : Add Font Support For Chart Axis - @jrking4 GH-186
 - ODPresentation & PowerPoint2007 Writer : Support for video - @Progi1984 GH-123
 - ODPresentation & PowerPoint2007 Writer : Support for Visibility for slides - @Progi1984
+- PowerPoint2007 Reader : Layout Management - @vincentKool @Progi1984 GH-161 
+- PowerPoint2007 Reader : Slide size - @loverslcn @Progi1984 GH-246 
+- PowerPoint2007 Reader : Bullet Color - @Progi1984 GH-257 
+- PowerPoint2007 Reader : Line Spacing - @Progi1984 GH-257 
 - PowerPoint2007 Writer : Presentation with predefined View Type - @Progi1984 GH-120
 - PowerPoint2007 Writer : Implement alpha channel to Fills - @Dayjo GH-203 / @Progi1984 GH-215
 - PowerPoint2007 Writer : Implement Animations - @JewrassicPark GH-214 / @Progi1984 GH-217
+- PowerPoint2007 Writer : Layout Management - @vincentKool @Progi1984 GH-161
+- PowerPoint2007 Writer : Bullet Color - @piotrbelina GH-249 
+- PowerPoint2007 Writer : Line Spacing - @piotrbelina GH-249 
 
 ## 0.6.0 - 2016-01-24
 

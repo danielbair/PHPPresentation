@@ -21,11 +21,6 @@ use DirectoryIterator;
 use PhpOffice\Common\Adapter\Zip\ZipArchiveAdapter;
 use PhpOffice\PhpPresentation\HashTable;
 use PhpOffice\PhpPresentation\PhpPresentation;
-use PhpOffice\PhpPresentation\Shape\AbstractDrawing;
-use PhpOffice\PhpPresentation\Shape\Chart as ChartShape;
-use PhpOffice\PhpPresentation\Shape\Drawing\AbstractDrawingAdapter;
-use PhpOffice\PhpPresentation\Shape\Group;
-use PhpOffice\PhpPresentation\Shape\Table;
 use PhpOffice\PhpPresentation\Writer\PowerPoint2007\LayoutPack\AbstractLayoutPack;
 use PhpOffice\PhpPresentation\Writer\PowerPoint2007\LayoutPack\PackDefault;
 
@@ -50,7 +45,7 @@ class PowerPoint2007 extends AbstractWriter implements WriterInterface
 
     /**
      * Layout pack to use
-     *
+     * @deprecated 0.7
      * @var \PhpOffice\PhpPresentation\Writer\PowerPoint2007\LayoutPack\AbstractLayoutPack
      */
     protected $layoutPack;
@@ -106,6 +101,7 @@ class PowerPoint2007 extends AbstractWriter implements WriterInterface
         $oZip->open($pFilename);
 
         $oDir = new DirectoryIterator(dirname(__FILE__).DIRECTORY_SEPARATOR.'PowerPoint2007');
+        $arrayFiles = array();
         foreach ($oDir as $oFile) {
             if (!$oFile->isFile()) {
                 continue;
@@ -190,6 +186,7 @@ class PowerPoint2007 extends AbstractWriter implements WriterInterface
     /**
      * Get layout pack to use
      *
+     * @deprecated 0.7
      * @return \PhpOffice\PhpPresentation\Writer\PowerPoint2007\LayoutPack\AbstractLayoutPack
      */
     public function getLayoutPack()
@@ -200,6 +197,7 @@ class PowerPoint2007 extends AbstractWriter implements WriterInterface
     /**
      * Set layout pack to use
      *
+     * @deprecated 0.7
      * @param \PhpOffice\PhpPresentation\Writer\PowerPoint2007\LayoutPack\AbstractLayoutPack $pValue
      * @return \PhpOffice\PhpPresentation\Writer\PowerPoint2007
      */

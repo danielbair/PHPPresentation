@@ -2,8 +2,6 @@
 
 namespace PhpOffice\PhpPresentation\Shape\Drawing;
 
-use SplFileInfo;
-
 class File extends AbstractDrawingAdapter
 {
     /**
@@ -65,6 +63,7 @@ class File extends AbstractDrawingAdapter
     }
 
     /**
+     * @throws \Exception
      * @return string
      */
     public function getMimeType()
